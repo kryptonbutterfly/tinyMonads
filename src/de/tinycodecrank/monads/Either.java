@@ -1,6 +1,7 @@
 package de.tinycodecrank.monads;
 
 import java.util.NoSuchElementException;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 public abstract class Either<L, R>
@@ -22,6 +23,8 @@ public abstract class Either<L, R>
 	
 	abstract R right();
 	
+	public abstract void forEither(Consumer<L> left, Consumer<R> right);
+	
 	public abstract Opt<L> getLeft();
 	
 	public abstract boolean isLeft();
@@ -36,17 +39,7 @@ public abstract class Either<L, R>
 	
 	public abstract <U, V> Either<U, V> map(Function<L, U> bindLeft, Function<R, V> bindRight);
 	
-	public final <Ret> Ret fold(Function<L, Ret> leftMapper, Function<R, Ret> rightMapper)
-	{
-		if (isRight())
-		{
-			return rightMapper.apply(right());
-		}
-		else
-		{
-			return leftMapper.apply(left());
-		}
-	}
+	public abstract <Ret> Ret fold(Function<L, Ret> leftMapper, Function<R, Ret> rightMapper);
 	
 	private static final class Left<L, R> extends Either<L, R>
 	{
@@ -67,6 +60,18 @@ public abstract class Either<L, R>
 		R right()
 		{
 			throw new NoSuchElementException("called right() on Left");
+		}
+		
+		@Override
+		public <Ret> Ret fold(Function<L, Ret> leftMapper, Function<R, Ret> rightMapper)
+		{
+			return leftMapper.apply(left);
+		}
+		
+		@Override
+		public void forEither(Consumer<L> left, Consumer<R> right)
+		{
+			left.accept(this.left);
 		}
 		
 		@Override
@@ -133,6 +138,18 @@ public abstract class Either<L, R>
 		R right()
 		{
 			return right;
+		}
+		
+		@Override
+		public <Ret> Ret fold(Function<L, Ret> leftMapper, Function<R, Ret> rightMapper)
+		{
+			return rightMapper.apply(right);
+		}
+		
+		@Override
+		public void forEither(Consumer<L> left, Consumer<R> right)
+		{
+			right.accept(this.right);
 		}
 		
 		@Override
