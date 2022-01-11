@@ -154,6 +154,12 @@ public abstract class OneOf3<L, M, R>
 		{
 			return left.apply(this.left);
 		}
+		
+		@Override
+		public String toString()
+		{
+			return "(" + left + ", ∅, ∅)";
+		}
 	}
 	
 	private static final class Middle<L, M, R> extends OneOf3<L, M, R>
@@ -256,6 +262,12 @@ public abstract class OneOf3<L, M, R>
 		{
 			return middle.apply(this.middle);
 		}
+		
+		@Override
+		public String toString()
+		{
+			return "(∅, " + middle + ", ∅)";
+		}
 	}
 	
 	private static final class Right<L, M, R> extends OneOf3<L, M, R>
@@ -357,6 +369,12 @@ public abstract class OneOf3<L, M, R>
 		public <Ret> Ret fold(Function<L, Ret> left, Function<M, Ret> middle, Function<R, Ret> right)
 		{
 			return right.apply(this.right);
+		}
+		
+		@Override
+		public String toString()
+		{
+			return "(∅, ∅, " + right + ")";
 		}
 	}
 }

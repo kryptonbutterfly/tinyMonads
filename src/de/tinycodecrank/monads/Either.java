@@ -117,6 +117,12 @@ public abstract class Either<L, R>
 		{
 			return (Either<U, V>) mapLeft(bindLeft);
 		}
+		
+		@Override
+		public String toString()
+		{
+			return "(" + left + ", ∅)";
+		}
 	}
 	
 	private static final class Right<L, R> extends Either<L, R>
@@ -194,6 +200,12 @@ public abstract class Either<L, R>
 		public <U, V> Either<U, V> map(Function<L, U> bindLeft, Function<R, V> bindRight)
 		{
 			return (Either<U, V>) mapRight(bindRight);
+		}
+		
+		@Override
+		public String toString()
+		{
+			return "(∅, " + right + ")";
 		}
 	}
 }
