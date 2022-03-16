@@ -4,25 +4,63 @@ import java.util.NoSuchElementException;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+/**
+ * Contains either the left or right element
+ * 
+ * @author christian
+ *
+ * @param <L>
+ *            The type of the left option
+ * @param <R>
+ *            The type of the right option
+ */
 public abstract class Either<L, R>
 {
+	private static final String ToString = "(%s, %s)";
+	
 	private Either()
 	{}
 	
+	/**
+	 * Creates an instance containing the right type
+	 * 
+	 * @param right
+	 * @return
+	 */
 	public static <L, R> Either<L, R> right(R right)
 	{
 		return new Right<L, R>(right);
 	}
 	
+	/**
+	 * Creates an instance containing the left type
+	 * 
+	 * @param left
+	 * @return
+	 */
 	public static <L, R> Either<L, R> left(L left)
 	{
 		return new Left<L, R>(left);
 	}
 	
+	/**
+	 * @return left
+	 * @throws NoSuchElementException
+	 *             if this isn't a left
+	 */
 	abstract L left();
 	
+	/**
+	 * @return right
+	 * @throws NoSuchElementException
+	 *             if this isn't a right
+	 */
 	abstract R right();
 	
+	/**
+	 * @param left
+	 * @param right
+	 */
 	public abstract void forEither(Consumer<L> left, Consumer<R> right);
 	
 	public abstract Opt<L> getLeft();
@@ -121,7 +159,7 @@ public abstract class Either<L, R>
 		@Override
 		public String toString()
 		{
-			return "(" + left + ", ∅)";
+			return String.format(ToString, left, "∅");
 		}
 	}
 	
@@ -205,7 +243,7 @@ public abstract class Either<L, R>
 		@Override
 		public String toString()
 		{
-			return "(∅, " + right + ")";
+			return String.format(ToString, "∅", right);
 		}
 	}
 }

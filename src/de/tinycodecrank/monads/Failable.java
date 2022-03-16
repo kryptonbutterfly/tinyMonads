@@ -103,10 +103,11 @@ public abstract class Failable<T, E extends Throwable>
 			throw exception;
 		}
 		
+		@SuppressWarnings("unchecked")
 		@Override
 		public <S> Failable<S, E> map(Function<T, S> bind)
 		{
-			return new Failure<S, E>(exception);
+			return (Failable<S, E>) this;
 		}
 		
 		@Override

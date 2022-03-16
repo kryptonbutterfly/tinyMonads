@@ -6,6 +6,8 @@ import java.util.function.Function;
 
 public abstract class OneOf3<L, M, R>
 {
+	private static final String ToString = "(%s, %s, %s)";
+	
 	private OneOf3()
 	{}
 	
@@ -158,7 +160,7 @@ public abstract class OneOf3<L, M, R>
 		@Override
 		public String toString()
 		{
-			return "(" + left + ", ∅, ∅)";
+			return String.format(ToString, left, "∅", "∅");
 		}
 	}
 	
@@ -266,7 +268,7 @@ public abstract class OneOf3<L, M, R>
 		@Override
 		public String toString()
 		{
-			return "(∅, " + middle + ", ∅)";
+			return String.format(ToString, "∅", middle, "∅");
 		}
 	}
 	
@@ -374,7 +376,7 @@ public abstract class OneOf3<L, M, R>
 		@Override
 		public String toString()
 		{
-			return "(∅, ∅, " + right + ")";
+			return String.format(ToString, "∅", right, "∅");
 		}
 	}
 }
