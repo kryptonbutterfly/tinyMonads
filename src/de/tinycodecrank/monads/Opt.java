@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -52,6 +53,11 @@ public abstract class Opt<T> implements AutoCloseable, Iterable<T>
 	public static <V> Opt<V> empty()
 	{
 		return (Opt<V>) EMPTY;
+	}
+	
+	public static <T> Opt<T> convert(Optional<T> opt)
+	{
+		return of(opt.orElse(null));
 	}
 	
 	private Opt()
@@ -200,6 +206,11 @@ public abstract class Opt<T> implements AutoCloseable, Iterable<T>
 	 * @throws Err
 	 */
 	public abstract <Err extends Throwable> Opt<T> else_Throws(RunnableThrowing<Err> empty) throws Err;
+	
+	/**
+	 * @return The equivalent {@link Optional} of this Opt.
+	 */
+	public abstract Optional<T> toOptional();
 	
 	/**
 	 * Returns the hash code value of the present value or 0 if no value is present.
@@ -395,6 +406,12 @@ public abstract class Opt<T> implements AutoCloseable, Iterable<T>
 		}
 		
 		@Override
+		public Optional<T> toOptional()
+		{
+			return Optional.of(content);
+		}
+		
+		@Override
 		public void close() throws Exception
 		{
 			if (content.getClass().isAssignableFrom(AutoCloseable.class))
@@ -545,6 +562,12 @@ public abstract class Opt<T> implements AutoCloseable, Iterable<T>
 		{
 			empty.run();
 			return this;
+		}
+		
+		@Override
+		public Optional<T> toOptional()
+		{
+			return Optional.empty();
 		}
 		
 		@Override
