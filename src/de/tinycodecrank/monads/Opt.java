@@ -21,7 +21,7 @@ import de.tinycodecrank.iterator.SingleElementIterator;
  * This Class provides an alternative to null that doesn't rely on runtime null
  * checking, but instead leverages javas type system, to ensure validity
  * 
- * @author christian
+ * @author tinycodecrank
  * @param <T>
  */
 public abstract class Opt<T> implements AutoCloseable, Iterable<T>

@@ -7,7 +7,7 @@ import java.util.function.Function;
 /**
  * Contains either the left or right element
  * 
- * @author christian
+ * @author tinycodecrank
  *
  * @param <L>
  *            The type of the left option
