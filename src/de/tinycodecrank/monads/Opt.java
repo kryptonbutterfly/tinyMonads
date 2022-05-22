@@ -144,11 +144,21 @@ public abstract class Opt<T> implements AutoCloseable, Iterable<T>
 	}
 	
 	/**
+	 * @deprecated Use {@link Opt#getThrows(Supplier)} instead!
 	 * @param fallback
 	 * @return the contained value or the supplied fallback value
 	 * @throws Err
 	 */
+	@Deprecated(forRemoval = true)
 	public abstract <Err extends Throwable> T getThrows(SupplierThrowing<T, Err> fallback) throws Err;
+	
+	/**
+	 * @param <Err>
+	 * @param errorSupplier
+	 * @return
+	 * @throws Err
+	 */
+	public abstract <Err extends Throwable> T getThrows(Supplier<Err> errorSupplier) throws Err;
 	
 	/**
 	 * @param fallback
@@ -368,6 +378,12 @@ public abstract class Opt<T> implements AutoCloseable, Iterable<T>
 		}
 		
 		@Override
+		public <Err extends Throwable> T getThrows(Supplier<Err> errorSupplier) throws Err
+		{
+			return this.content;
+		}
+		
+		@Override
 		public Opt<T> or(Supplier<T> alternative)
 		{
 			return this;
@@ -506,6 +522,12 @@ public abstract class Opt<T> implements AutoCloseable, Iterable<T>
 		public <Err extends Throwable> T getThrows(SupplierThrowing<T, Err> fallback) throws Err
 		{
 			return fallback.get();
+		}
+		
+		@Override
+		public <Err extends Throwable> T getThrows(Supplier<Err> errorSupplier) throws Err
+		{
+			throw errorSupplier.get();
 		}
 		
 		@Override
