@@ -13,6 +13,7 @@ import de.tinycodecrank.functions.throwing.ConsumerThrowing;
 import de.tinycodecrank.functions.throwing.FunctionThrowing;
 import de.tinycodecrank.functions.throwing.RunnableThrowing;
 import de.tinycodecrank.functions.throwing.SupplierThrowing;
+import de.tinycodecrank.monads.opt.Opt;
 
 public abstract class OptInt
 {
