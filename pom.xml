@@ -2,9 +2,36 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.tinycodecrank</groupId>
   <artifactId>Monads</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>tinyMonads</name>
   <description>some useful Monads for java</description>
+
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub tinycodecrank Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/tinycodecrank/tinyMonads</url>
+		</repository>
+	</distributionManagement>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>18</java.version>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>de.tinycodecrank</groupId>
+			<artifactId>tiny_iterators</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>de.tinycodecrank</groupId>
+			<artifactId>better_functionals</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+	</dependencies>
   
   <build>
     <sourceDirectory>src</sourceDirectory>
