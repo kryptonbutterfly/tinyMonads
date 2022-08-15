@@ -25,6 +25,14 @@
 			<id>github</id>
 			<url>https://maven.pkg.github.com/tinycodecrank/package_registry</url>
 		</repository>
+		<repository>
+			<id>github_tiny_monads</id>
+			<url>https://maven.pkg.github.com/tinycodecrank/tiny_monads</url>
+		</repository>
+		<repository>
+			<id>github_better_functionals</id>
+			<url>https://maven.pkg.github.com/tinycodecrank/better_functionals</url>
+		</repository>
 	</repositories>
 	
 	<dependencies>
