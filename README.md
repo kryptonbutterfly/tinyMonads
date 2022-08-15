@@ -1,4 +1,4 @@
-# tinyMonads
+# tinyMonads [![Maven Package](https://github.com/tinycodecrank/tinyMonads/actions/workflows/maven-publish.yml/badge.svg)](https://github.com/tinycodecrank/tinyMonads/actions/workflows/maven-publish.yml)
 some Monads for java
 
 + Opt — Better than null because it's TypeChecked (No NullPointerException at runtime but a compiler error instead).
