@@ -1,16 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.tinycodecrank</groupId>
-	<artifactId>Monads</artifactId>
+	<artifactId>tiny_monads</artifactId>
 	<version>1.0.0</version>
-	<name>tinyMonads</name>
+	<name>tiny_monads</name>
 	<description>some useful Monads for java</description>
 
 	<distributionManagement>
 		<repository>
 			<id>github_tiny_monads</id>
 			<name>GitHub tinycodecrank Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/tinycodecrank/tinyMonads</url>
+			<url>https://maven.pkg.github.com/tinycodecrank/tiny_monads</url>
 		</repository>
 	</distributionManagement>
 
