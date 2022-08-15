@@ -27,6 +27,8 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Maven
+      env:
+        GITHUB_TOKEN: ${{ secrets.PACKAGE_ACCESS_TINY_MONADS }}
       run: mvn -X -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
