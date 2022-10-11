@@ -50,4 +50,17 @@ final class Success<T, E extends Throwable> implements Failable<T, E>
 	{
 		return success.apply(value);
 	}
+	
+	@Override
+	public Failable<T, E> try_(Consumer<T> bind)
+	{
+		bind.accept(value);
+		return this;
+	}
+	
+	@Override
+	public Failable<T, E> catch_(Consumer<E> bind)
+	{
+		return this;
+	}
 }

@@ -34,4 +34,8 @@ public sealed interface Failable<T, E extends Throwable> permits Success<T, E>, 
 	public <S> Failable<S, E> map(Function<T, S> bind);
 	
 	public <S, E2 extends E> Failable<S, E2> flatmap(FunctionThrowing<T, S, E2> bind);
+	
+	public Failable<T, E> try_(Consumer<T> bind);
+	
+	public Failable<T, E> catch_(Consumer<E> bind);
 }
