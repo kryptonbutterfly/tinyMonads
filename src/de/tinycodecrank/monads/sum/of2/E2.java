@@ -1,4 +1,4 @@
-package de.tinycodecrank.monads.either;
+package de.tinycodecrank.monads.sum.of2;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -6,11 +6,11 @@ import java.util.function.Supplier;
 
 import de.tinycodecrank.monads.opt.Opt;
 
-final class Right<L, R> implements Either<L, R>
+final class E2<L, R> implements Sum2<L, R>
 {
 	private final R right;
 	
-	Right(R right)
+	E2(R right)
 	{
 		this.right = right;
 	}
@@ -28,27 +28,9 @@ final class Right<L, R> implements Either<L, R>
 	}
 	
 	@Override
-	public Opt<L> left()
-	{
-		return Opt.empty();
-	}
-	
-	@Override
-	public boolean isLeft()
-	{
-		return false;
-	}
-	
-	@Override
 	public Opt<R> right()
 	{
 		return Opt.of(right);
-	}
-	
-	@Override
-	public L left(Supplier<L> fallback)
-	{
-		return fallback.get();
 	}
 	
 	@Override
@@ -63,24 +45,17 @@ final class Right<L, R> implements Either<L, R>
 		return true;
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
-	public <U> Either<U, R> mapLeft(Function<L, U> bind)
+	public <U> Sum2<L, U> mapRight(Function<R, U> bind)
 	{
-		return (Either<U, R>) this;
-	}
-	
-	@Override
-	public <U> Either<L, U> mapRight(Function<R, U> bind)
-	{
-		return new Right<>(bind.apply(right));
+		return new E2<>(bind.apply(right));
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public <U, V> Either<U, V> map(Function<L, U> bindLeft, Function<R, V> bindRight)
+	public <U, V> Sum2<U, V> map(Function<L, U> bindLeft, Function<R, V> bindRight)
 	{
-		return (Either<U, V>) mapRight(bindRight);
+		return (Sum2<U, V>) mapRight(bindRight);
 	}
 	
 	@Override
