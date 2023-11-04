@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 
 import de.tinycodecrank.monads.opt.Opt;
 
-public sealed interface Sum4<A, B, C, D> permits E1<A, B, C, D>, E2<A, B, C, D>, E3<A, B, C, D>, E4<A, B, C, D>
+public sealed interface Sum4<A, B, C, D> permits E1, E2, E3, E4
 {
 	static final String ToString = "(%s, %s, %s, %s)";
 	

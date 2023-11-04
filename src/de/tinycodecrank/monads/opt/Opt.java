@@ -22,7 +22,7 @@ import de.tinycodecrank.monads.OptInt;
  * @author tinycodecrank
  * @param <T>
  */
-public sealed interface Opt<T> extends AutoCloseable, Iterable<T>permits OptContent<T>, OptEmpty<T>
+public sealed interface Opt<T> extends AutoCloseable, Iterable<T> permits OptContent, OptEmpty
 {
 	static final OptEmpty<?> EMPTY = new OptEmpty<>();
 	

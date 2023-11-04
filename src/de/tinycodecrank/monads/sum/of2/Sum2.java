@@ -16,7 +16,7 @@ import de.tinycodecrank.monads.opt.Opt;
  * @param <R>
  *            The type of the right option
  */
-public sealed interface Sum2<L, R> permits E1<L, R>, E2<L, R>
+public sealed interface Sum2<L, R> permits E1, E2
 {
 	static final String ToString = "(%s, %s)";
 	

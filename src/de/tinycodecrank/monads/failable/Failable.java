@@ -7,7 +7,7 @@ import de.tinycodecrank.functions.throwing.FunctionThrowing;
 import de.tinycodecrank.functions.throwing.SupplierThrowing;
 import de.tinycodecrank.monads.opt.Opt;
 
-public sealed interface Failable<T, E extends Throwable> permits Success<T, E>, Failure<T, E>
+public sealed interface Failable<T, E extends Throwable> permits Success, Failure
 {
 	@SuppressWarnings("unchecked")
 	public static <T, E extends Throwable> Failable<T, E> attempt(SupplierThrowing<T, E> action)

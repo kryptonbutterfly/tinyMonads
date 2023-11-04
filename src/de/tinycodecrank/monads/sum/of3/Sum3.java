@@ -6,7 +6,7 @@ import java.util.function.Supplier;
 
 import de.tinycodecrank.monads.opt.Opt;
 
-public sealed interface Sum3<L, M, R> permits E1<L, M, R>, E2<L, M, R>, E3<L, M, R>
+public sealed interface Sum3<L, M, R> permits E1, E2, E3
 {
 	static final String ToString = "(%s, %s, %s)";
 	
