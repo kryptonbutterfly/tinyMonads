@@ -60,7 +60,7 @@ public sealed interface Opt<T> extends AutoCloseable, Iterable<T> permits OptCon
 	
 	/**
 	 * @param bind
-	 * @return An {@cod Opt} containing the result of the given function or
+	 * @return An {@code Opt} containing the result of the given function or
 	 *         {@code this} if {@code this} is empty
 	 */
 	public abstract <R> Opt<R> map(Function<T, R> bind);
