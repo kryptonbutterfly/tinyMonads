@@ -4,10 +4,9 @@ some Monads for java
 Type | Description
 :--: | :----------
 Opt | Better than null because it's TypeChecked (No NullPointerException at runtime but a compiler error instead).
-Sum2 | A type containing eiter one type or an other one.
-Sum3 | A type containing one of 3 types (same as either but with 3 types instead of 2).
-Sum4 | A type containing one of 4 types (same as either but with 4 types instead of 2).
+Either | A type containing eiter one type or another one.
 Failable | A type containing either a result or an exception.
+OneOf3 | A type containing one of 3 types (same as either but with 3 types instead of 2).
 
 ## Getting the latest release
 
