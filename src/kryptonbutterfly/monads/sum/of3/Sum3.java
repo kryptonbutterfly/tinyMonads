@@ -1,10 +1,10 @@
-package de.tinycodecrank.monads.sum.of3;
+package kryptonbutterfly.monads.sum.of3;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import de.tinycodecrank.monads.opt.Opt;
+import kryptonbutterfly.monads.opt.Opt;
 
 public sealed interface Sum3<L, M, R> permits E1, E2, E3
 {

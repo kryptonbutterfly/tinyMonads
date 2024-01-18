@@ -1,10 +1,10 @@
-package de.tinycodecrank.monads.sum.of2;
+package kryptonbutterfly.monads.sum.of2;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import de.tinycodecrank.monads.opt.Opt;
+import kryptonbutterfly.monads.opt.Opt;
 
 /**
  * Contains either the left or right element

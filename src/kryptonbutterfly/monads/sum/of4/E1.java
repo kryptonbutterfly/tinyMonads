@@ -1,65 +1,65 @@
-package de.tinycodecrank.monads.sum.of4;
+package kryptonbutterfly.monads.sum.of4;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import de.tinycodecrank.monads.opt.Opt;
+import kryptonbutterfly.monads.opt.Opt;
 
-final class E3<A, B, C, D> implements Sum4<A, B, C, D>
+final class E1<A, B, C, D> implements Sum4<A, B, C, D>
 {
-	private final C c;
+	private final A a;
 	
-	E3(C c)
+	E1(A a)
 	{
-		this.c = c;
+		this.a = a;
 	}
 	
 	@Override
-	public C c(Supplier<C> fallback)
+	public A a(Supplier<A> fallback)
 	{
-		return c;
+		return a;
 	}
 	
 	@Override
-	public Opt<C> c()
+	public Opt<A> a()
 	{
-		return Opt.of(c);
+		return Opt.of(a);
 	}
 	
 	@Override
-	public boolean isC()
+	public boolean isA()
 	{
 		return true;
 	}
 	
 	@Override
-	public <R> Sum4<A, B, R, D> mapC(Function<C, R> bind)
+	public <R> Sum4<R, B, C, D> mapA(Function<A, R> bind)
 	{
-		return new E3<>(bind.apply(c));
+		return new E1<>(bind.apply(a));
 	}
 	
 	@Override
 	public void forEither(Consumer<A> a, Consumer<B> b, Consumer<C> c, Consumer<D> d)
 	{
-		c.accept(this.c);
+		a.accept(this.a);
 	}
 	
 	@Override
 	public <W, X, Y, Z> Sum4<W, X, Y, Z> map(Function<A, W> a, Function<B, X> b, Function<C, Y> c, Function<D, Z> d)
 	{
-		return new E3<>(c.apply(this.c));
+		return new E1<>(a.apply(this.a));
 	}
 	
 	@Override
 	public <R> R fold(Function<A, R> a, Function<B, R> b, Function<C, R> c, Function<D, R> d)
 	{
-		return c.apply(this.c);
+		return a.apply(this.a);
 	}
 	
 	@Override
 	public String toString()
 	{
-		return ToString.formatted("ø", "ø", c, "ø");
+		return ToString.formatted(a, "ø", "ø", "ø");
 	}
 }

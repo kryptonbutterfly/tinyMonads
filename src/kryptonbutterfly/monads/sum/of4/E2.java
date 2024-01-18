@@ -1,10 +1,10 @@
-package de.tinycodecrank.monads.sum.of4;
+package kryptonbutterfly.monads.sum.of4;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import de.tinycodecrank.monads.opt.Opt;
+import kryptonbutterfly.monads.opt.Opt;
 
 final class E2<A, B, C, D> implements Sum4<A, B, C, D>
 {

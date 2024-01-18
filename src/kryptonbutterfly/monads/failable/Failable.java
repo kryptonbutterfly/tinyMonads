@@ -1,11 +1,11 @@
-package de.tinycodecrank.monads.failable;
+package kryptonbutterfly.monads.failable;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import de.tinycodecrank.functions.throwing.FunctionThrowing;
-import de.tinycodecrank.functions.throwing.SupplierThrowing;
-import de.tinycodecrank.monads.opt.Opt;
+import kryptonbutterfly.functions.throwing.FunctionThrowing;
+import kryptonbutterfly.functions.throwing.SupplierThrowing;
+import kryptonbutterfly.monads.opt.Opt;
 
 public sealed interface Failable<T, E extends Throwable> permits Success, Failure
 {

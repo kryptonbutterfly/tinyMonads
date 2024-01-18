@@ -1,4 +1,4 @@
-package de.tinycodecrank.monads;
+package kryptonbutterfly.monads;
 
 import java.util.NoSuchElementException;
 import java.util.Objects;
@@ -9,11 +9,11 @@ import java.util.function.IntSupplier;
 import java.util.function.IntUnaryOperator;
 import java.util.function.Supplier;
 
-import de.tinycodecrank.functions.throwing.ConsumerThrowing;
-import de.tinycodecrank.functions.throwing.FunctionThrowing;
-import de.tinycodecrank.functions.throwing.RunnableThrowing;
-import de.tinycodecrank.functions.throwing.SupplierThrowing;
-import de.tinycodecrank.monads.opt.Opt;
+import kryptonbutterfly.functions.throwing.ConsumerThrowing;
+import kryptonbutterfly.functions.throwing.FunctionThrowing;
+import kryptonbutterfly.functions.throwing.RunnableThrowing;
+import kryptonbutterfly.functions.throwing.SupplierThrowing;
+import kryptonbutterfly.monads.opt.Opt;
 
 public abstract class OptInt
 {

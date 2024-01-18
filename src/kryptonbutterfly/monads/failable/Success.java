@@ -1,10 +1,10 @@
-package de.tinycodecrank.monads.failable;
+package kryptonbutterfly.monads.failable;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import de.tinycodecrank.functions.throwing.FunctionThrowing;
-import de.tinycodecrank.monads.opt.Opt;
+import kryptonbutterfly.functions.throwing.FunctionThrowing;
+import kryptonbutterfly.monads.opt.Opt;
 
 final class Success<T, E extends Throwable> implements Failable<T, E>
 {

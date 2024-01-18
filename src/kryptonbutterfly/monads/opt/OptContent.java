@@ -1,4 +1,4 @@
-package de.tinycodecrank.monads.opt;
+package kryptonbutterfly.monads.opt;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -10,12 +10,12 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-import de.tinycodecrank.functions.throwing.ConsumerThrowing;
-import de.tinycodecrank.functions.throwing.FunctionThrowing;
-import de.tinycodecrank.functions.throwing.RunnableThrowing;
-import de.tinycodecrank.functions.throwing.SupplierThrowing;
-import de.tinycodecrank.iterator.SingleElementIterator;
-import de.tinycodecrank.monads.OptInt;
+import kryptonbutterfly.functions.throwing.ConsumerThrowing;
+import kryptonbutterfly.functions.throwing.FunctionThrowing;
+import kryptonbutterfly.functions.throwing.RunnableThrowing;
+import kryptonbutterfly.functions.throwing.SupplierThrowing;
+import kryptonbutterfly.iterator.SingleElementIterator;
+import kryptonbutterfly.monads.OptInt;
 
 final class OptContent<T> implements Opt<T>
 {

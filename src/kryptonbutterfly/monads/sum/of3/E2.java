@@ -1,65 +1,65 @@
-package de.tinycodecrank.monads.sum.of3;
+package kryptonbutterfly.monads.sum.of3;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import de.tinycodecrank.monads.opt.Opt;
+import kryptonbutterfly.monads.opt.Opt;
 
-final class E3<L, M, R> implements Sum3<L, M, R>
+final class E2<L, M, R> implements Sum3<L, M, R>
 {
-	private final R right;
+	private final M middle;
 	
-	E3(R right)
+	E2(M middle)
 	{
-		this.right = right;
+		this.middle = middle;
 	}
 	
 	@Override
 	public void forEither(Consumer<L> left, Consumer<M> middle, Consumer<R> right)
 	{
-		right.accept(this.right);
+		middle.accept(this.middle);
 	}
 	
 	@Override
-	public Opt<R> right()
+	public Opt<M> middle()
 	{
-		return Opt.of(right);
+		return Opt.of(middle);
 	}
 	
 	@Override
-	public R right(Supplier<R> fallback)
+	public M middle(Supplier<M> fallback)
 	{
-		return right;
+		return middle;
 	}
 	
 	@Override
-	public boolean isRight()
+	public boolean isMiddle()
 	{
 		return true;
 	}
 	
 	@Override
-	public <U> Sum3<L, M, U> mapR(Function<R, U> bind)
+	public <U> Sum3<L, U, R> mapM(Function<M, U> bind)
 	{
-		return new E3<>(bind.apply(right));
+		return new E2<>(bind.apply(this.middle));
 	}
 	
 	@Override
 	public <U, V, W> Sum3<U, V, W> map(Function<L, U> left, Function<M, V> middle, Function<R, W> right)
 	{
-		return new E3<>(right.apply(this.right));
+		return new E2<>(middle.apply(this.middle));
 	}
 	
 	@Override
 	public <Ret> Ret fold(Function<L, Ret> left, Function<M, Ret> middle, Function<R, Ret> right)
 	{
-		return right.apply(this.right);
+		return middle.apply(this.middle);
 	}
 	
 	@Override
 	public String toString()
 	{
-		return ToString.formatted("∅", right, "∅");
+		return ToString.formatted("∅", middle, "∅");
 	}
 }

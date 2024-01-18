@@ -1,12 +1,12 @@
-module de.tinycodecrank.Monads
+module kryptonbutterfly.Monads
 {
-	exports de.tinycodecrank.monads;
-	exports de.tinycodecrank.monads.failable;
-	exports de.tinycodecrank.monads.opt;
-	exports de.tinycodecrank.monads.sum.of2;
-	exports de.tinycodecrank.monads.sum.of3;
-	exports de.tinycodecrank.monads.sum.of4;
+	exports kryptonbutterfly.monads;
+	exports kryptonbutterfly.monads.failable;
+	exports kryptonbutterfly.monads.opt;
+	exports kryptonbutterfly.monads.sum.of2;
+	exports kryptonbutterfly.monads.sum.of3;
+	exports kryptonbutterfly.monads.sum.of4;
 	
-	requires de.tinycodecrank.Functional;
-	requires de.tinycodecrank.Iterator;
+	requires kryptonbutterfly.Functional;
+	requires kryptonbutterfly.Iterator;
 }
