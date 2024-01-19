@@ -19,7 +19,7 @@ import kryptonbutterfly.monads.OptInt;
  * This Class provides an alternative to null that doesn't rely on runtime null
  * checking, but instead leverages javas type system, to ensure validity
  * 
- * @author tinycodecrank
+ * @author kryptonbutterfly
  * @param <T>
  */
 public sealed interface Opt<T> extends AutoCloseable, Iterable<T> permits OptContent, OptEmpty

@@ -9,7 +9,7 @@ import kryptonbutterfly.monads.opt.Opt;
 /**
  * Contains either the left or right element
  * 
- * @author tinycodecrank
+ * @author kryptonbutterfly
  *
  * @param <L>
  *            The type of the left option
